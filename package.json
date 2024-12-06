@@ -4,8 +4,8 @@
   "private": true,
   "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
   "scripts": {
-    "parcel:serve": "parcel -p 8123 src/index.html src/views/*.html --open",
-    "parcel:build": "parcel --no-source-maps --no-cache */*.html",
+    "parcel:serve": "parcel -p 8123  --open",
+    "parcel:build": "parcel build --no-source-maps --no-cache ",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "start": "parcel -p 8123  src/index.html src/views/*.html --open",
     "dev": "npm-run-all clean parcel:serve",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lagmaral/HerramientasII_PEC1.git"
+    "url": "git+https://github.com/lagmaral/HerramientasII_PEC2.git"
   },
   "author": {
     "name": "Alberto Lago Martín",
