@@ -1,0 +1,114 @@
+@layer headerLayer {
+  /* Bloque principal: header */
+  .header {
+      padding: 1rem 10lvw; /* Separación lateral */
+
+      /* Usar el soporte de OKLCH si está disponible */
+      @supports (color: oklch(0.6 0.2 90)) {
+        background-color: $header-footer-background-oklch;
+        color: $header-footer-font-color-oklch;
+      }
+
+      /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+      @supports (color: color(display-p3 0.95 0.95 0.98)) {
+        @supports not (color: oklch(0.6 0.2 90)) {
+          background-color: $header-footer-background-display-p3;
+          color: $header-footer-font-color-display-p3;
+        }
+      }
+
+      /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+      @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+        @supports not (color: oklch(0.6 0.2 90)) {
+          background-color: $header-footer-background-color;
+          color: $header-footer-font-color;
+        }
+      }
+
+      /* Elemento logo dentro del header */
+      &__logo {
+        margin-left: 10lvw; /* Separación del logo */
+      }
+
+      /* Elemento imagen dentro del logo */
+      &__logo-image {
+        height: auto;
+        width: 5lvw; /* Tamaño proporcional */
+      }
+
+      /* Elemento para el botón de hamburguesa */
+      &__toggler {
+        border-color: var(--header-text-color); /* Color del borde */
+      }
+
+      &__nav{
+        /* Usar el soporte de OKLCH si está disponible */
+        @supports (color: oklch(0.6 0.2 90)) {
+          background-color: $header-footer-background-oklch!important;
+          color: $header-footer-font-color-oklch!important;
+        }
+
+        /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+        @supports (color: color(display-p3 0.95 0.95 0.98)) {
+          @supports not (color: oklch(0.6 0.2 90)) {
+            background-color: $header-footer-background-display-p3!important;
+            color: $header-footer-font-color-display-p3!important;
+          }
+        }
+
+        /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+        @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+          @supports not (color: oklch(0.6 0.2 90)) {
+            background-color: $header-footer-background-color!important;
+            color: $header-footer-font-color!important;
+          }
+        }
+
+        /* Elemento para la lista de navegación */
+        &-list{
+          margin-right: 10lvw; /* Separación de los enlaces */
+        }
+
+        /* Modificador para los enlaces de navegación */
+        &-link {
+          /* Usar el soporte de OKLCH si está disponible */
+          @supports (color: oklch(0.6 0.2 90)) {
+            color: $header-footer-font-color-oklch!important;
+            font-weight: 700!important;
+          }
+
+          /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+          @supports (color: color(display-p3 0.95 0.95 0.98)) {
+            @supports not (color: oklch(0.6 0.2 90)) {
+              color: $header-footer-font-color-display-p3!important;
+              font-weight: 700!important;
+            }
+          }
+
+          /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+          @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+            @supports not (color: oklch(0.6 0.2 90)) {
+              color: $header-footer-font-color!important;
+              font-weight: 700!important;
+            }
+          }
+
+          margin-left: 1rem; /* Separación entre enlaces */
+
+        }
+      }
+
+
+
+
+
+
+
+
+      /* Estilo para el botón de hamburguesa */
+      &__navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23240656' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+  }
+
+}

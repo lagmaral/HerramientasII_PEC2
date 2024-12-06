@@ -1,0 +1,336 @@
+/* Estilos para el header */
+.index-header {
+  /* Propiedades de disposición y estilo general */
+  align-items: center;               /* Centra verticalmente el contenido */
+  box-sizing: border-box;            /* Incluye padding en el tamaño total */
+  display: flex;                     /* Flexbox para disposición básica */
+  font-family: $font-family-sans-serif; /* Fuente del texto */
+  height: 7.5lvh;                     /* Altura del header */
+  justify-content: space-between;    /* Espaciado entre logo y navegación */
+  padding: 1rem 10lvw;               /* Espaciado lateral */
+
+  /* Usar el soporte de OKLCH si está disponible */
+  @supports (color: oklch(0.6 0.2 90)) {
+    background-color: $header-footer-background-oklch; /* Fondo con OKLCH */
+    color: $header-footer-font-color-oklch;           /* Color de texto con OKLCH */
+  }
+
+  /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+  @supports (color: color(display-p3 0.95 0.95 0.98)) {
+    @supports not (color: oklch(0.6 0.2 90)) {
+      background-color: $header-footer-background-display-p3; /* Fondo con Display-P3 */
+      color: $header-footer-font-color-display-p3;            /* Color de texto con Display-P3 */
+    }
+  }
+
+  /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+  @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+    @supports not (color: oklch(0.6 0.2 90)) {
+      background-color: $header-footer-background-color;  /* Fondo estándar */
+      color: $header-footer-font-color;                   /* Color de texto estándar */
+    }
+  }
+
+  &__logo {
+    img {
+      height: auto;                  /* Mantiene la proporción de la imagen */
+      width: 5lvw;                   /* Define un ancho relativo */
+    }
+  }
+
+  &__nav-hidden{
+    display: none; /* Oculta la navegación */
+  }
+
+  &__nav-list {
+    display: flex;                   /* Flexbox para la lista de navegación */
+    list-style: none;                /* Quita los marcadores de la lista */
+    margin: 0;
+    padding: 0;
+  }
+
+  &__nav-item {
+    font-weight: 700;               /* Texto en negrita */
+    margin-left: 1lvw;               /* Espaciado entre elementos */
+
+    &:first-child {
+      margin-left: 0;                /* El primer elemento no tiene margen a la izquierda */
+    }
+  }
+
+  &__nav-link {
+    color: $header-footer-font-color; /* Color del enlace */
+    padding: 0.5rem;                  /* Espaciado dentro del enlace */
+    text-decoration: none;            /* Quita subrayado */
+  }
+}
+
+/* Soporte para Grid */
+@supports (display: grid) {
+  .index-header {
+    display: grid;                   /* Cambia de Flex a Grid */
+    grid-template-columns: auto 1fr; /* Define dos columnas en el grid */
+    height: 10lvh;                   /* Aumenta la altura en grid */
+
+    &__logo {
+      align-self: center;            /* Centra verticalmente el logo */
+      grid-column: 1;                /* Coloca el logo en la primera columna */
+    }
+
+    &__nav {
+      grid-column: 2;                /* Navegación en la segunda columna */
+      justify-self: end;             /* Alinea navegación a la derecha */
+    }
+  }
+}
+
+/* Media Query para pantallas pequeñas */
+@media (width <= 768px) {
+  .index-header {
+    flex-direction: column;          /* Cambia disposición a columna */
+    height: auto;                    /* Permite que el header crezca en altura */
+    padding: 1rem 5vw;               /* Reduce el padding lateral */
+
+    &__logo {
+      margin-bottom: 1rem;             /* Añade separación debajo del logo */
+    }
+
+    &__nav-list {
+      align-items: center;             /* Centra la lista en columna */
+      flex-direction: column;          /* Coloca enlaces en columna */
+    }
+
+    &__nav-item {
+      margin-bottom: 0.5rem;           /* Espacio entre enlaces de navegación */
+      margin-left: 0;                  /* Elimina margen izquierdo */
+    }
+  }
+}
+
+.index-footer{
+  /* Propiedades de disposición y espaciado */
+  align-items: center;              /* Centra verticalmente el contenido */
+  box-sizing: border-box;           /* Incluye padding en el tamaño total */
+  display: flex;                    /* Usa Flexbox para disposición básica */
+  font-family: $font-family-sans-serif; /* Fuente para el texto */
+  height: 10lvh;                    /* Altura del footer */
+  justify-content: space-between;   /* Espaciado entre logo, navegación y social */
+  padding: 1rem 10lvw;              /* Espaciado lateral */
+  position: relative;               /* Para posicionar el pseudo-elemento antes */
+
+  /* Usar el soporte de OKLCH si está disponible */
+  @supports (color: oklch(0.6 0.2 90)) {
+    background-color: $header-footer-background-oklch; /* Fondo con OKLCH */
+    color: $header-footer-font-color-oklch;           /* Color de texto con OKLCH */
+  }
+
+  /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+  @supports (color: color(display-p3 0.95 0.95 0.98)) {
+    @supports not (color: oklch(0.6 0.2 90)) {
+      background-color: $header-footer-background-display-p3; /* Fondo con Display-P3 */
+      color: $header-footer-font-color-display-p3;            /* Color de texto con Display-P3 */
+    }
+  }
+
+  /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+  @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+    @supports not (color: oklch(0.6 0.2 90)) {
+      background-color: $header-footer-background-color;  /* Fondo estándar */
+      color: $header-footer-font-color;                   /* Color de texto estándar */
+    }
+  }
+
+  &__logo {
+    img {
+      height: auto;                 /* Mantiene la proporción de la imagen */
+      width: 5lvw;                  /* Define un ancho relativo */
+    }
+  }
+
+  &__social {
+    display: flex;                  /* Flex para los iconos de redes sociales */
+    gap: 1lvw;                      /* Espacio entre iconos de redes */
+  }
+
+  &__social-link {
+    /* Usar el soporte de OKLCH si está disponible */
+    @supports (color: oklch(0.6 0.2 90)) {
+      color: $header-footer-font-color-oklch;  /* Color con OKLCH */
+    }
+
+    /* Usar Display-P3 si OKLCH no está disponible, pero Display-P3 sí lo está */
+    @supports (color: color(display-p3 0.95 0.95 0.98)) {
+      @supports not (color: oklch(0.6 0.2 90)) {
+        color: $header-footer-font-color-display-p3; /* Color con Display-P3 */
+      }
+    }
+
+    /* Fallback para navegadores que no soportan OKLCH ni Display-P3 */
+    @supports not (color: color(display-p3 0.95 0.95 0.98)) {
+      @supports not (color: oklch(0.6 0.2 90)) {
+        color: $header-footer-font-color; /* Color estándar */
+      }
+    }
+
+    padding: 0.5lvw;                /* Espaciado dentro del enlace */
+    text-decoration: none;          /* Quita subrayado */
+  }
+
+  &__nav-list {
+    display: flex;                  /* Flexbox para la lista de navegación */
+    gap: 1.5rem;                    /* Espacio entre elementos de la lista */
+    justify-content: flex-end;      /* Alinea la lista hacia la derecha */
+    list-style: none;               /* Quita los marcadores de la lista */
+    margin: 0;
+    padding: 0;
+  }
+
+  &__nav-item {
+    font-weight: 700;              /* Texto en negrita */
+    text-decoration: none;          /* Quita subrayado */
+  }
+
+  &__nav-link {
+    color: $header-footer-font-color; /* Color del enlace */
+    padding: 0.5rem;                 /* Espaciado dentro del enlace */
+    text-decoration: none;           /* Quita subrayado */
+  }
+
+}
+
+/* Soporte para Grid */
+@supports (display: grid) {
+  .index-footer {
+    display: grid;                      /* Cambia de Flex a Grid */
+    grid-template-columns: auto 1fr auto; /* Define tres columnas en el grid */
+    height: 10lvh;                      /* Aumenta la altura en grid */
+
+    &__logo {
+      align-self: center;               /* Centra verticalmente el logo */
+      grid-column: 1;
+    }
+
+    &__nav {
+      grid-column: 2;                   /* Ubica navegación en la columna central */
+      justify-self: center;             /* Centra la navegación */
+    }
+
+    &__social {
+      grid-column: 3;                   /* Social en la tercera columna */
+      text-align: right;                /* Alinea iconos a la derecha */
+    }
+  }
+}
+
+/* Media Query para pantallas pequeñas */
+@media (width <= 768px) {
+  .index-footer {
+    flex-direction: column;            /* Cambia a disposición en columna */
+    height: auto;                      /* Permite crecer en altura */
+    padding: 1rem 5vw;                 /* Reduce el padding lateral */
+
+    &__logo {
+      margin-bottom: 1rem;             /* Añade separación debajo del logo */
+    }
+
+    &__nav-list {
+      align-items: center;             /* Centra la lista en columna */
+      flex-direction: column;          /* Pone enlaces de navegación en columna */
+    }
+
+    &__social {
+      margin-top: 1rem;                /* Añade separación encima de redes sociales */
+    }
+
+    &__social-link {
+      margin: 0 0.5rem;                /* Ajusta margen entre iconos */
+    }
+  }
+}
+
+/* Agregamos un contenedor con soporte de grid y container queries */
+
+.container {
+  align-items: center;
+  background-image: url("../images/fondo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white-color;
+  display: flex; /* Por defecto, usar flexbox */
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  width: 100vw;
+
+  /* Estilos del logo */
+  &__logo img {
+    height: auto;
+    margin-right: 2rem;
+    max-width: 20vw;
+  }
+
+  /* Contenido */
+  &__contenido {
+    max-width: 50vw;
+  }
+
+  &__titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* Usamos Grid si el contenedor soporta Grid */
+  @supports (display: grid) {
+    display: grid; /* Cambiar de flexbox a grid */
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-rows: auto auto; /* Dos filas */
+
+    &__logo {
+      grid-column: 1 / 2; /* Coloca el logo en la primera columna */
+      grid-row: 1 / 3;    /* El logo ocupa las dos filas */
+      place-self: center; /* Centra el logo en la columna */
+    }
+
+    &__contenido {
+      grid-column: 2 / 3; /* El contenido se coloca en la segunda columna */
+      grid-row: 1 / 3;    /* Ocupa ambas filas en la columna */
+    }
+
+    &__titulo {
+      grid-row: 1;
+    }
+
+    &__subtitulo {
+      grid-row: 2;
+    }
+  }
+
+  /* Usando container queries */
+  @container (min-width: 800px) {
+    display: grid; /* Cambia a grid si el contenedor es lo suficientemente ancho */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @container (max-width: 799px) {
+    align-items: center;
+    display: flex; /* Regresa a flexbox si el contenedor es más estrecho */
+    flex-direction: column;
+    gap: 2rem;
+
+    &__logo {
+      margin-bottom: 1rem; /* Añade margen debajo del logo */
+    }
+
+    &__contenido {
+      max-width: 90vw; /* Ajusta el contenido */
+    }
+  }
+}

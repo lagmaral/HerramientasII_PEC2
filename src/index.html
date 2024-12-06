@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html>
+  <head>
+    <!-- Configuración del conjunto de caracteres para soporte de texto en múltiples idiomas -->
+    <meta charset="utf-8">
+    <!-- Configuración para que el sitio sea responsive y se ajuste al ancho del dispositivo -->
+    <meta name="viewport" content="width=device-width">
+    <!-- Enlace al archivo principal de estilos (en formato SCSS compilado) -->
+    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <title>Noamatech convention</title> <!-- Título de la página -->
+  </head>
+  <body>
+
+    <header class="index-header">
+        <!-- Sección del logotipo en el encabezado -->
+        <div class="index-header__logo">
+            <img src="./assets/images/logo.png" alt="Logo" />
+        </div>
+        <!-- Navegación principal -->
+        <nav class="index-header__nav">
+            <ul class="index-header__nav-list">
+                <!-- Elementos del menú de navegación -->
+                <li class="index-header__nav-item">
+                    <a href="./views/speakers.html" class="index-header__nav-link" data-page="speakers">Speakers</a>
+                </li>
+                <li class="index-header__nav-item">
+                    <a href="./views/aboutus.html" class="index-header__nav-link" data-page="aboutus">Acerca de</a>
+                </li>
+                <li class="index-header__nav-item">
+                    <a href="./views/contact.html" class="index-header__nav-link" data-page="info">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Logotipo o imagen representativa del evento -->
+        <div class="container__logo">
+          <img src="./assets/images/defensa.png" alt="Image del logo de seguridad">
+        </div>
+        <!-- Texto descriptivo del evento -->
+        <div class="container__contenido">
+          <h1 class="container__titulo">Congreso de Seguridad Informática</h1>
+          <h2 class="container__subtitulo">Noviembre de 2024</h2>
+        </div>
+    </main>
+
+
+    <footer class="index-footer">
+        <!-- Logotipo en el pie de página -->
+        <div class="index-footer__logo">
+            <img src="./assets/images/logo.png" alt="Logo">
+        </div>
+        <!-- Navegación secundaria en el pie de página -->
+        <nav class="index-footer__nav">
+            <ul class="index-footer__nav-list">
+                <!-- Elementos del menú de navegación en el pie de página -->
+                <li class="index-footer__nav-item">
+                    <a href="./views/speakers.html" class="index-footer__nav-link" data-page="speakers">Speakers</a>
+                </li>
+                <li class="index-footer__nav-item">
+                    <a href="./views/aboutus.html" class="index-footer__nav-link" data-page="aboutus">Acerca de</a>
+                </li>
+                <li class="index-footer__nav-item">
+                    <a href="./views/contact.html" class="index-footer__nav-link" data-page="info">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Íconos y enlaces a redes sociales -->
+        <div class="index-footer__social">
+            <a class="index-footer__social-link" href="https://facebook.com">
+                <i class="fab fa-facebook fa-2x"></i> <!-- Ícono de Facebook -->
+            </a>
+            <a class="index-footer__social-link" href="https://twitter.com">
+                <i class="fab fa-twitter fa-2x"></i> <!-- Ícono de Twitter -->
+            </a>
+            <a class="index-footer__social-link" href="https://instagram.com">
+                <i class="fab fa-instagram fa-2x"></i> <!-- Ícono de Instagram -->
+            </a>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo principal de scripts en formato ES Modules -->
+    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+  </body>
+</html>
