@@ -1,11 +1,11 @@
 {
-  "name": "uoc-boilerplate",
+  "name": "no-amatech",
   "version": "3.9.0",
   "private": true,
   "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
   "scripts": {
     "parcel:serve": "parcel -p 8123 src/index.html src/views/*.html --open",
-    "parcel:build": "parcel build --no-source-maps --no-cache",
+    "parcel:build": "parcel */*.html",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "start": "parcel -p 8123  src/index.html src/views/*.html --open",
     "dev": "npm-run-all clean parcel:serve",
@@ -33,9 +33,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lagmaral/HerramientasII_PEC1.git/issues"
+    "url": "https://github.com/lagmaral/HerramientasII_PEC2.git/issues"
   },
-  "homepage": "https://github.com/lagmaral/HerramientasII_PEC1.git#readme",
+  "homepage": "https://github.com/lagmaral/HerramientasII_PEC2.git#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",
     "autoprefixer": "^10.4.15",
