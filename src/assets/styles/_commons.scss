@@ -1,15 +1,25 @@
+// Sobreescritura de variables de Bootstrap
+$primary: #00B5FF;
+$btn-primary-bg: $primary;
+$btn-primary-border: $border-color;
+$btn-primary-hover-bg: $white-color;
+$btn-box-shadow: 0 4px 8px color(display-p3 0.3 0.3 0.3 / 50%);
+$btn-primary-font-size: 1.5dvmin;    // Tamaño de fuente
 
-@layer components {
-  .btn-primary {
-      background-color: color(display-p3 0.2 0.6 0.8);
-      border-color: color(display-p3 0.2 0.6 0.8);
-  }
+// Importación de Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
 
-  .btn-primary:hover {
-      background-color: color(display-p3 0.3 0.7 0.9);
-  }
+// Estilos adicionales para asegurar la sobreescritura
+.btn-primary {
+  background-color: $btn-primary-bg;
+  border-color: $btn-primary-border;
+  box-shadow: $btn-box-shadow;
+  color:$white-color;
+  font-family: $font-family-secundary; /* Familia tipográfica */
+  font-size: $btn-primary-font-size;        /* Tamaño de fuente */
 
-  .shadow {
-      box-shadow: 0 4px 8px color(display-p3 0.3 0.3 0.3 / 50%);
+  &:hover {
+    background-color: $btn-primary-hover-bg;
+    color:$primary;
   }
 }
